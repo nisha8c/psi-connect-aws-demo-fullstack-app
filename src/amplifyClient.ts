@@ -2,5 +2,5 @@
 import { Amplify } from 'aws-amplify';
 import outputs from '../amplify_outputs.json';
 
-// Configure Amplify once at app start
-Amplify.configure(outputs);
+
+Amplify.configure(outputs); // Configure Amplify once at app start
