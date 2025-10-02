@@ -1,8 +1,9 @@
-"use client";
+// src/hooks/useGetStarted.ts
+'use client';
 
-import { getCurrentUser, signInWithRedirect } from "aws-amplify/auth";
-import { useRouter } from "next/navigation";
-import { useState, useEffect, useCallback } from "react";
+import { getCurrentUser } from 'aws-amplify/auth';
+import { useRouter } from 'next/navigation';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useGetStarted = () => {
     const router = useRouter();
@@ -19,15 +20,12 @@ export const useGetStarted = () => {
         })();
     }, []);
 
-    const handleGetStarted = useCallback(async () => {
+    const handleGetStarted = useCallback(() => {
         if (isAuthed) {
-            router.push("/dashboard");
+            router.push('/dashboard');
         } else {
-            try {
-                await signInWithRedirect();
-            } catch (e) {
-                console.error("signInWithRedirect failed", e);
-            }
+            // No Hosted UI. We use the built-in Authenticator page.
+            router.push('/auth');
         }
     }, [isAuthed, router]);
 

@@ -16,7 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-import { fetchAuthSession, getCurrentUser, signOut } from "aws-amplify/auth";
+import {AuthUser, fetchAuthSession, getCurrentUser, signOut as amplifySignOutFn} from "aws-amplify/auth";
 
 type Role = "admin" | "doctor" | "user";
 
@@ -90,22 +90,54 @@ const adminNav: NavItem[] = [
     { title: "Settings", url: "/admin/settings", icon: Settings },
 ];
 
-export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+type AppShellProps = {
+    children: React.ReactNode;
+    /** Provided by <Authenticator>; optional for reuse outside (app) */
+    user?: AuthUser;
+    /** Provided by <Authenticator>; optional fallback to Amplify signOut() */
+    signOut?: () => void;
+};
+
+export const AppShell: React.FC<AppShellProps> = ({ children, user: authUser, signOut }) => {
     const pathname = usePathname();
-    const [user, setUser] = React.useState<AppUser | null | undefined>(undefined);
+    // If Authenticator gave us a user, we’ll derive AppUser from the token.
+    // Otherwise we’ll call `me()` like before.
+    const [user, setUser] = React.useState<AppUser | null | undefined>(authUser ? null : undefined);
     const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
         (async () => {
-            const u = await me();
-            setUser(u);
-            setLoading(false);
+            try {
+                if (authUser) {
+                    const { tokens } = await fetchAuthSession();
+                    const payload = tokens?.idToken?.payload ?? {};
+                    const groups = (payload["cognito:groups"] as string[] | undefined) ?? [];
+                    setUser({
+                        full_name:
+                            (payload["name"] as string) ||
+                            (payload["given_name"] as string) ||
+                            authUser.username,
+                        email: payload["email"] as string | undefined,
+                        role: mapGroupsToRole(groups),
+                    });
+                } else {
+                    const u = await me();
+                    setUser(u);
+                }
+            } finally {
+                setLoading(false);
+            }
         })();
-    }, []);
+    }, [authUser]);
 
     const handleLogout = async () => {
-        await signOut();
-        window.location.assign("/");
+        if (signOut) {
+            // Authenticator-provided signOut
+            signOut();
+        } else {
+            await amplifySignOutFn();
+            window.location.assign("/");
+        }
     };
 
     const navItems = React.useMemo(() => {
