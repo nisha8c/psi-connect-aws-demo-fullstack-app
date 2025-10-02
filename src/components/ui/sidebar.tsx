@@ -189,6 +189,7 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
             return (
                 <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
                     <SheetContent
+                        title={'sidebar'}
                         data-sidebar="sidebar"
                         data-mobile="true"
                         className="w-[--sidebar-width] bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
