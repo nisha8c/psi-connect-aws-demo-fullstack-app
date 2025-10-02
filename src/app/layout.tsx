@@ -30,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      <AmplifyInit />  {/* configures Amplify once, client-side */}
+        <AmplifyInit />  {/* configures Amplify once, client-side */}
         {children}
       </body>
     </html>
