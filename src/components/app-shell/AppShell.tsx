@@ -1,5 +1,6 @@
 // src/components/app-shell/AppShell.tsx
 "use client";
+import '@/lib/amplifyClient';
 
 import React from "react";
 import Link from "next/link";
