@@ -141,12 +141,19 @@ export const AppShell: React.FC<AppShellProps> = ({ children, user: authUser, si
         }
     };
 
+
     const navItems = React.useMemo(() => {
         if (!user) return publicNav;
-        if (user.role === "admin") return adminNav;
-        if ((user.email && user.email.includes("doctor")) || user.specialty) return doctorNav;
-        return patientNav;
+        switch (user.role) {
+            case "admin":
+                return adminNav;
+            case "doctor":
+                return doctorNav;
+            default:
+                return patientNav;
+        }
     }, [user]);
+
 
     if (loading) {
         return (
