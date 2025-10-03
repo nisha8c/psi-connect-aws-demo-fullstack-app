@@ -11,7 +11,7 @@ import {
     UserCheck,
     Activity,
 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 
 // If you have data APIs, import & use them here.
 // import { User, Session, Document } from "@/api/entities";
@@ -25,7 +25,7 @@ type AdminStats = {
 };
 
 const AdminDashboard: React.FC = () => {
-    const [admin /* , setAdmin */] = React.useState<any>(null);
+    //const [admin /* , setAdmin */] = React.useState<any>(null);
     const [stats, setStats] = React.useState<AdminStats>({
         totalUsers: 0,
         totalDoctors: 0,
