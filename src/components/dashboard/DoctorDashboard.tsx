@@ -43,23 +43,7 @@ const DoctorDashboard: React.FC = () => {
 
     React.useEffect(() => {
         // TODO: Replace this block with your real data calls (AppSync/GraphQL/etc.)
-        // Example flow (from Base44):
-        // const currentDoctor = await User.me();
-        // const allSessions = await Session.list("-created_date");
-        // const doctorSessions = allSessions.filter(s => s.doctor_id === currentDoctor.id);
-        // const today = new Date().toDateString();
-        // const todaySessions = doctorSessions.filter(s => new Date(s.created_date).toDateString() === today);
-        // const pending = doctorSessions.filter(s => s.status === "pending");
-        // const allCallbacks = await CallbackRequest.list("-created_date");
-        // const pendingCallbacks = allCallbacks.filter(c => c.status === "pending");
-        // setDoctorName(currentDoctor.full_name);
-        // setStats({
-        //   patients: /* derive */,
-        //   todaySessions: todaySessions.length,
-        //   pendingSessions: pending.length,
-        //   callbackRequests: pendingCallbacks.length,
-        // });
-        // setRecentSessions(doctorSessions.slice(0, 5));
+
 
         const timer = setTimeout(() => {
             setDoctorName("Amelia Carter");

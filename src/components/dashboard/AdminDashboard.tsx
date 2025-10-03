@@ -37,24 +37,7 @@ const AdminDashboard: React.FC = () => {
 
     React.useEffect(() => {
         // TODO: Replace with your real data calls (AppSync/GraphQL/etc.)
-        // Example (Base44 style):
-        // const currentAdmin = await User.me();
-        // const allUsers = await User.list();
-        // const doctors = allUsers.filter(u => u.specialty || u.email.includes("doctor"));
-        // const patients = allUsers.filter(u => u.role === "user" || (!u.role && !u.specialty));
-        // const allSessions = await Session.list();
-        // const active = allSessions.filter(s => s.status === "in_progress");
-        // const allDocs = await Document.list();
-        // setAdmin(currentAdmin);
-        // setStats({
-        //   totalUsers: patients.length,
-        //   totalDoctors: doctors.length,
-        //   totalSessions: allSessions.length,
-        //   totalDocuments: allDocs.length,
-        //   activeSessions: active.length,
-        // });
 
-        // For now, demo values:
         const timer = setTimeout(() => {
             setStats({
                 totalUsers: 1248,
