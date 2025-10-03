@@ -77,7 +77,7 @@ const patientNav: NavItem[] = [
 
 const doctorNav: NavItem[] = [
     { title: "Home", url: "/", icon: HomeIcon },
-    { title: "Dashboard", url: "/doctor/dashboard", icon: LayoutDashboard },
+    { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
     { title: "My Patients", url: "/doctor/patients", icon: Users },
     { title: "Sessions", url: "/doctor/sessions", icon: Video },
     { title: "Documents", url: "/doctor/documents", icon: FileText },
@@ -85,7 +85,7 @@ const doctorNav: NavItem[] = [
 
 const adminNav: NavItem[] = [
     { title: "Home", url: "/", icon: HomeIcon },
-    { title: "Dashboard", url: "/admin/dashboard", icon: LayoutDashboard },
+    { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
     { title: "Users", url: "/admin/users", icon: Users },
     { title: "Doctors", url: "/admin/doctors", icon: Users },
     { title: "Settings", url: "/admin/settings", icon: Settings },
