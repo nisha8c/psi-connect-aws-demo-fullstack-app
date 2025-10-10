@@ -6,7 +6,7 @@
 <img width="623" height="893" alt="PsyConnectCrisis" src="https://github.com/user-attachments/assets/1d2c07c2-5547-416d-9200-7da8957ccf80" />
 
 <img width="1562" height="912" alt="AdminDash" src="https://github.com/user-attachments/assets/8be3e853-c814-40fe-a643-3a9718ab10a6" />
-<img width="1562" height="912" alt="Dr-Dash" src="https://github.com/user-attachments/assets/6ba8361b-2304-4f48-89c8-e262138a1732" />
+<img width="1636" height="918" alt="psi-doc" src="https://github.com/user-attachments/assets/94004f09-d811-4b1c-a57d-e31bc37eb79a" />
 <img width="1562" height="912" alt="pat-Dash" src="https://github.com/user-attachments/assets/da8ae0cf-d41f-4c72-b1bc-72616264b257" />
 
 
